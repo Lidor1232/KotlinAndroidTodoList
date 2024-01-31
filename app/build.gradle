@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.example.mvvm_advanced_app'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.mvvm_advanced_app"
@@ -64,4 +64,5 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0"
 }
