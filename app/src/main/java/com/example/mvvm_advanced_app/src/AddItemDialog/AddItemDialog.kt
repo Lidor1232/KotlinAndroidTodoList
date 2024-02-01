@@ -9,7 +9,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import com.example.mvvm_advanced_app.src.AddItemViewModel
 import com.example.mvvm_advanced_app.src.TodoListViewModel
-import timber.log.Timber
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -17,8 +16,6 @@ fun AddItemDialog(
     addItemViewModel: AddItemViewModel,
     todoListViewModel: TodoListViewModel,
 ) {
-    Timber.d(addItemViewModel.itemName.value)
-
     if (addItemViewModel.showDialog.value) {
         AlertDialog(
             onDismissRequest = {
@@ -40,8 +37,8 @@ fun AddItemDialog(
             confirmButton = {
                 Button(
                     onClick = {
-                        addItemViewModel.setItemName("")
                         todoListViewModel.addItem(addItemViewModel.itemName.value)
+                        addItemViewModel.setItemName("")
                         addItemViewModel.setShowDialog(false)
                     },
                 ) {

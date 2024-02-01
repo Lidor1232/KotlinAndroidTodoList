@@ -9,5 +9,5 @@ fun TodoItem(
     todoListViewModel: TodoListViewModel,
     index: Int,
 ) {
-    Text(text = "item: $index")
+    Text(text = "item: ${todoListViewModel.list.value[index]}")
 }
