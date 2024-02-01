@@ -26,5 +26,5 @@ fun TodoListApp(
             }
         })
     }
-    AddItemDialog(addItemViewModel)
+    AddItemDialog(addItemViewModel, todoListViewModel)
 }

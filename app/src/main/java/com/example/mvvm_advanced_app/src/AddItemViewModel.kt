@@ -13,8 +13,19 @@ class AddItemViewModel() : ViewModel() {
         )
     val showDialog: MutableState<Boolean> = _showDialog
 
+    private val _itemName =
+        mutableStateOf(
+            repository.getAddItem().itemName,
+        )
+    val itemName: MutableState<String> = _itemName
+
     fun setShowDialog(showDialog: Boolean) {
         repository.setShowDialog(showDialog)
         _showDialog.value = repository.getAddItem().showDialog
+    }
+
+    fun setItemName(itemName: String) {
+        repository.setItemName(itemName)
+        _itemName.value = repository.getAddItem().itemName
     }
 }
