@@ -4,22 +4,23 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
-class TodoListViewModel : ViewModel() {
+// private val repository: TodoListRepository
+class TodoListViewModel() : ViewModel() {
+    private val repository = TodoListRepository()
+
     private val _list =
         mutableStateOf(
-            listOf<String>(),
+            repository.getTodoList().list,
         )
     val list: MutableState<List<String>> = _list
 
     fun addItem(item: String) {
-        _list.value = _list.value + item
+        repository.addItem(item)
+        _list.value = repository.getTodoList().list
     }
 
     fun removeItem(item: String) {
-        _list.value =
-            _list.value.filter {
-                    listItem ->
-                item != listItem
-            }
+        repository.removeItem(item)
+        _list.value = repository.getTodoList().list
     }
 }
