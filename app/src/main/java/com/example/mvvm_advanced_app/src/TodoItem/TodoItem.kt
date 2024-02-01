@@ -6,7 +6,7 @@ import com.example.mvvm_advanced_app.src.TodoListViewModel
 
 @Composable
 fun TodoItem(
-    viewModel: TodoListViewModel,
+    todoListViewModel: TodoListViewModel,
     index: Int,
 ) {
     Text(text = "item: $index")
